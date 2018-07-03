@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "1e6b9efd"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="闭包,异步," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="闭包想法的初步理解闭包的想法源于对Javascript本身这个语言的特点。 可以利用函数来划分作用域。且在函数中如果查找不到所需要的局部变量时就会“向上”查找。即如果没有函数嵌套，那么会去全局作用域里查找。但是在函数外部想访问内部变量时就做不到了。 简单且通俗地来说： 里面的可以看到外面的，外面的看不到里面的。后来极具智慧的人类在不改变语言规则的情况下，想出了“闭包”。 既然只能向上查找。那么就改">
+<meta name="keywords" content="闭包,异步">
+<meta property="og:type" content="article">
+<meta property="og:title" content="结合异步理解闭包">
+<meta property="og:url" content="http://yoursite.com/2018/05/01/结合异步理解闭包/index.html">
+<meta property="og:site_name" content="niawenge">
+<meta property="og:description" content="闭包想法的初步理解闭包的想法源于对Javascript本身这个语言的特点。 可以利用函数来划分作用域。且在函数中如果查找不到所需要的局部变量时就会“向上”查找。即如果没有函数嵌套，那么会去全局作用域里查找。但是在函数外部想访问内部变量时就做不到了。 简单且通俗地来说： 里面的可以看到外面的，外面的看不到里面的。后来极具智慧的人类在不改变语言规则的情况下，想出了“闭包”。 既然只能向上查找。那么就改">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-01T14:32:43.614Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="结合异步理解闭包">
+<meta name="twitter:description" content="闭包想法的初步理解闭包的想法源于对Javascript本身这个语言的特点。 可以利用函数来划分作用域。且在函数中如果查找不到所需要的局部变量时就会“向上”查找。即如果没有函数嵌套，那么会去全局作用域里查找。但是在函数外部想访问内部变量时就做不到了。 简单且通俗地来说： 里面的可以看到外面的，外面的看不到里面的。后来极具智慧的人类在不改变语言规则的情况下，想出了“闭包”。 既然只能向上查找。那么就改">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/01/结合异步理解闭包/"/>
+
+
+
+
+
+  <title>结合异步理解闭包 | niawenge</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">niawenge</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">niawenge</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/01/结合异步理解闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="niawenge">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="niawenge">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">结合异步理解闭包</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T11:11:12+08:00">
+                2018-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+        
+
+        
+  <span class="post-updated">
+    &nbsp; | &nbsp; 更新于
+    <time itemprop="dateUpdated" datetime="2018-05-01T22:32:43+08:00" content="2018-05-01">
+      2018-05-01
+    </time>
+  </span>
+
+        
+
+
+
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="闭包想法的初步理解"><a href="#闭包想法的初步理解" class="headerlink" title="闭包想法的初步理解"></a>闭包想法的初步理解</h1><p>闭包的想法源于对Javascript本身这个语言的特点。</p>
+<p>可以利用函数来划分作用域。<br>且在函数中如果查找不到所需要的局部变量时就会“向上”查找。即如果没有函数嵌套，那么会去全局作用域里查找。<br>但是在函数外部想访问内部变量时就做不到了。</p>
+<p>简单且通俗地来说：</p>
+<h2 id="里面的可以看到外面的，外面的看不到里面的。"><a href="#里面的可以看到外面的，外面的看不到里面的。" class="headerlink" title="里面的可以看到外面的，外面的看不到里面的。"></a>里面的可以看到外面的，外面的看不到里面的。</h2><p>后来极具智慧的人类在不改变语言规则的情况下，想出了“闭包”。</p>
+<h2 id="既然只能向上查找。那么就改变查找的“起始点”！！！"><a href="#既然只能向上查找。那么就改变查找的“起始点”！！！" class="headerlink" title="既然只能向上查找。那么就改变查找的“起始点”！！！"></a>既然只能向上查找。那么就改变查找的“起始点”！！！</h2><p>简单来说，一个函数a内部的东西，通过函数a内部再创建一个函数b，通过这个函数b按照“向上”查找来得到这个函数a内部的东西。然后函数a的外部只需要调用函数b，即可获取函数a内部的东西。</p>
+<h2 id="这个闭包像个“内奸”。还控制着内部资源的生存时间。"><a href="#这个闭包像个“内奸”。还控制着内部资源的生存时间。" class="headerlink" title="这个闭包像个“内奸”。还控制着内部资源的生存时间。"></a>这个闭包像个“内奸”。还控制着内部资源的生存时间。</h2><p>通常情况下，函数执行形成一个私有的作用域，当执行完成后就销毁了-&gt;节省内存空间。<br>但是闭包反而会占用这个作用域不放。</p>
+<p>所以滥用闭包反而会得不偿失。</p>
+<hr>
+<h2 id="循环和定时器结合使用的问题"><a href="#循环和定时器结合使用的问题" class="headerlink" title="循环和定时器结合使用的问题"></a>循环和定时器结合使用的问题</h2><p>看到for循环结合定时器的例子的时候。真的是差点怀疑人生。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i);<span class="comment">//每隔一秒打印一个5,总共打印5个5</span></span><br><span class="line">        &#125;, i*<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p>这就是我看到的一个例子。原本不假思索地认为输出结果应该是 0 1 2 3 4<br>但是万万没想到。。。<br>然后我就给上面的代码添加了一句，测试了下。<br>测试代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i);<span class="comment">//2.然后每隔一秒打印一个5,总共打印5个5</span></span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(i);<span class="comment">//1.最先打印  0 1 2 3 4</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>因为异步机制，所以先打印 0 1 2 3 4 是没错的。定时器仍然在这里打印了5个5.<br>整体结合起来看，就说得通了。<br>首先，同步任务不管放在哪里，肯定是先于这个异步任务–定时器，i的值一直打印直到i=5的时候这个同步任务就停止了。<br>接着是异步任务开始打印，之前由于for循环每执行一次就创建出一个延时函数，执行了5次，就会有5个延时函数。这5个延时函数共享一个作用域（本例中全局作用域），且i又累加到5，所以会打印出5个5！！！</p>
+<hr>
+<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>当然是用闭包了。</p>
+<h3 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;</span><br><span class="line">       (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           setTimeout( <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.log( i );</span><br><span class="line">               &#125;, i*<span class="number">1000</span> );</span><br><span class="line">           <span class="comment">// console.log(i);</span></span><br><span class="line">           &#125;)();</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<p>每个延迟函数都会将立即执行函数在每次迭代中创建的作用域封闭起来。<br>但是结果任然是5个5。<br>因为这个封闭的作用域是空的，且i是全局作用域里的变量。</p>
+<h3 id="立即执行函数的成功改进1"><a href="#立即执行函数的成功改进1" class="headerlink" title="立即执行函数的成功改进1"></a>立即执行函数的成功改进1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;</span><br><span class="line">       (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">var</span> j = i;</span><br><span class="line">           setTimeout( <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.log( j );</span><br><span class="line">               &#125;, j*<span class="number">1000</span> );</span><br><span class="line">               &#125;)();</span><br><span class="line">               &#125;</span><br></pre></td></tr></table></figure>
+<p>通过声明一个局部变量j,并且传值赋值，即将i的值拷贝一份给j。<br>虽然i和j值相同，但是i和j相互独立。i是全局变量，j是局部变量。<br>每循环一次，就会拷贝一次并传递给j。并且每j秒打印一次j变量中的值。</p>
+<h3 id="立即执行函数的成功改进2"><a href="#立即执行函数的成功改进2" class="headerlink" title="立即执行函数的成功改进2"></a>立即执行函数的成功改进2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(e);</span><br><span class="line">        &#125;, i*<span class="number">1000</span>);</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>《你不知道的javascript》一书中也出现了这个方式。<br>这个改进似乎更简单，但是和改进1是同样的道理。因为js中函数传递参数就是按值传递的。</p>
+<h3 id="普通的自定义函数"><a href="#普通的自定义函数" class="headerlink" title="普通的自定义函数"></a>普通的自定义函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSetTimeout</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(i); &#125;, i*<span class="number">1000</span>);<span class="comment">//doSetTimeout包裹起来</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">    doSetTimeout(i);<span class="comment">//自定义函数循环调用</span></span><br><span class="line">    <span class="comment">// console.log(i);</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>同样的，自定义的函数也行。<br>每次循环，都会调用一次doSetTimeout函数。且把i按值传递给定时器。然后定时器每i秒输出一次i的值。</p>
+<p>如果在doSetTimeout函数中添加一句console.log(i);<br>那么视觉效果上会瞬间打印出0 1 2 3 4 0然后每隔1秒接着打印完剩下 1 2 3 4。</p>
+<h3 id="用let来控制作用域块"><a href="#用let来控制作用域块" class="headerlink" title="用let来控制作用域块"></a>用let来控制作用域块</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;</span><br><span class="line"><span class="keyword">let</span> j = i; <span class="comment">// 闭包的块作用域</span></span><br><span class="line">setTimeout( <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log( j );</span><br><span class="line">&#125;, j*<span class="number">1000</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;</span><br><span class="line">setTimeout( <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log( i );</span><br><span class="line">&#125;, i*<span class="number">1000</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>目测这是最简单粗暴的做法了。。</p>
+<hr>
+<h2 id="最后一句话概括闭包"><a href="#最后一句话概括闭包" class="headerlink" title="最后一句话概括闭包"></a>最后一句话概括闭包</h2><p>闭包是指有权访问另一个函数作用域中的变量的函数—-摘自Javascript高级程序设计</p>
+
+      
+    </div>
+    
+    
+    
+    
+    
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod">版权声明</span>
+<img src="" >
+<br/>
+<p style="font-size: 10px;line-height: 30px"><a href="http://niawenge.github.io" style="color:#258FC6">niawenge.github.io</a> by <a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a>创作并维护的<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a> 博客（ <a href="http://niawenge.github.io" style="color:#258FC6">http://niawenge.github.io</a> ），版权所有，侵权必究。</p>
+</div>
+</div>
+
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/money.png" alt="niawenge 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/闭包/" rel="tag"><i class="fa fa-tag"></i> 闭包</a>
+          
+            <a href="/tags/异步/" rel="tag"><i class="fa fa-tag"></i> 异步</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/30/水平垂直居中和position/" rel="next" title="水平垂直居中和position">
+                <i class="fa fa-chevron-left"></i> 水平垂直居中和position
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/11/node.js之文件系统fs/" rel="prev" title="node.js之文件系统fs">
+                node.js之文件系统fs <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTQ3Ni8xMjAxMg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang1.jpg"
+                alt="niawenge" />
+            
+              <p class="site-author-name" itemprop="name">niawenge</p>
+              <p class="site-description motion-element" itemprop="description">每天都在充电！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:niawenge@163.com" target="_blank" title="网易邮箱">
+                      网易邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/SevsnChen" target="_blank" title="微博">
+                      微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#闭包想法的初步理解"><span class="nav-number">1.</span> <span class="nav-text">闭包想法的初步理解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#里面的可以看到外面的，外面的看不到里面的。"><span class="nav-number">1.1.</span> <span class="nav-text">里面的可以看到外面的，外面的看不到里面的。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#既然只能向上查找。那么就改变查找的“起始点”！！！"><span class="nav-number">1.2.</span> <span class="nav-text">既然只能向上查找。那么就改变查找的“起始点”！！！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#这个闭包像个“内奸”。还控制着内部资源的生存时间。"><span class="nav-number">1.3.</span> <span class="nav-text">这个闭包像个“内奸”。还控制着内部资源的生存时间。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环和定时器结合使用的问题"><span class="nav-number">1.4.</span> <span class="nav-text">循环和定时器结合使用的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决思路"><span class="nav-number">1.5.</span> <span class="nav-text">解决思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#立即执行函数"><span class="nav-number">1.5.1.</span> <span class="nav-text">立即执行函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#立即执行函数的成功改进1"><span class="nav-number">1.5.2.</span> <span class="nav-text">立即执行函数的成功改进1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#立即执行函数的成功改进2"><span class="nav-number">1.5.3.</span> <span class="nav-text">立即执行函数的成功改进2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#普通的自定义函数"><span class="nav-number">1.5.4.</span> <span class="nav-text">普通的自定义函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用let来控制作用域块"><span class="nav-number">1.5.5.</span> <span class="nav-text">用let来控制作用域块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后一句话概括闭包"><span class="nav-number">1.6.</span> <span class="nav-text">最后一句话概括闭包</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+
+
+        
+      </div>
+
+    </main>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">niawenge</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+  欢迎交流讨论
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info"> 
+  邮箱:niawenge@163.com<span class="post-meta-divider">|</span>QQ:764852029 
+  </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=true&web_id=true" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

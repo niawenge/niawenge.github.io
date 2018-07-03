@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "1e6b9efd"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="知识梳理," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="对于进程和线程正儿八经的官方解释：进程是cpu资源分配的最小单位（是能拥有资源和独立运行的最小单位）线程是cpu调度的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程中可以有多个线程） 然后知识点来了：1.浏览器是多进程的！每打开一个Tab页，就相当于创建了一个独立的浏览器进程(如果看到有些进程被合并了是因为浏览器有自己的优化机制)。2.为什么使用多进程架构？早期的时候，一个进程处理">
+<meta name="keywords" content="知识梳理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器的机制以及进程与线程之间的关系">
+<meta property="og:url" content="http://yoursite.com/2018/04/05/浏览器的机制以及进程与线程之间的关系/index.html">
+<meta property="og:site_name" content="niawenge">
+<meta property="og:description" content="对于进程和线程正儿八经的官方解释：进程是cpu资源分配的最小单位（是能拥有资源和独立运行的最小单位）线程是cpu调度的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程中可以有多个线程） 然后知识点来了：1.浏览器是多进程的！每打开一个Tab页，就相当于创建了一个独立的浏览器进程(如果看到有些进程被合并了是因为浏览器有自己的优化机制)。2.为什么使用多进程架构？早期的时候，一个进程处理">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-11T06:32:51.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器的机制以及进程与线程之间的关系">
+<meta name="twitter:description" content="对于进程和线程正儿八经的官方解释：进程是cpu资源分配的最小单位（是能拥有资源和独立运行的最小单位）线程是cpu调度的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程中可以有多个线程） 然后知识点来了：1.浏览器是多进程的！每打开一个Tab页，就相当于创建了一个独立的浏览器进程(如果看到有些进程被合并了是因为浏览器有自己的优化机制)。2.为什么使用多进程架构？早期的时候，一个进程处理">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/05/浏览器的机制以及进程与线程之间的关系/"/>
+
+
+
+
+
+  <title>浏览器的机制以及进程与线程之间的关系 | niawenge</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">niawenge</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">niawenge</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/05/浏览器的机制以及进程与线程之间的关系/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="niawenge">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="niawenge">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浏览器的机制以及进程与线程之间的关系</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-05T12:42:54+08:00">
+                2018-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+        
+
+        
+  <span class="post-updated">
+    &nbsp; | &nbsp; 更新于
+    <time itemprop="dateUpdated" datetime="2018-04-11T14:32:51+08:00" content="2018-04-11">
+      2018-04-11
+    </time>
+  </span>
+
+        
+
+
+
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对于进程和线程正儿八经的官方解释：<br>进程是cpu资源分配的最小单位（是能拥有资源和独立运行的最小单位）<br>线程是cpu调度的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程中可以有多个线程）</p>
+<p>然后知识点来了：<br>1.浏览器是多进程的！<br>每打开一个Tab页，就相当于创建了一个独立的浏览器进程(如果看到有些进程被合并了是因为浏览器有自己的优化机制)。<br>2.为什么使用多进程架构？<br>早期的时候，一个进程处理多个网页时可行的。但是时至今日，网页越来越复杂，必须从一个网页的健壮性，响应速度，安全性方面来考虑的。<br>特别是这个安全性：<br>采用多进程，即使是浏览器其中的一个进程出现了崩溃现象(比如第三方插件进程崩溃了，也不会影响整个浏览器)，其他的进程也不会受到影响！<br>相对于线程，进程之间是不共享资源和地址空间的,所以不会存在太多的安全问题！<br>而多个线程共享着相同的地址空间和资源,所以会存在线程之间有可能会恶意修改或者获取非授权数据等复杂的安全问题！</p>
+<p>当然了，在操作系统课中提及N次的一个“空间换时间”的说法这边也是管用的。采用多进程的话，内存等资源消耗也会更大。</p>
+<p>接着再了解一下浏览器的内核：<br>浏览器内核是通过取得页面内容、整理信息（应用CSS）、计算和组合最终输出可视化的图像结果，通常也被称为渲染引擎。<br>例如：GUI 渲染线程，JavaScript引擎线程，定时触发器线程，事件触发线程，异步http请求线程等。</p>
+<hr>
+<p>1.为什么说GUI渲染线程与JS引擎线程互斥？<br>由于JavaScript是可操纵DOM的，如果在修改这些元素属性同时渲染界面（即JS线程和UI线程同时运行），那么渲染线程前后获得的元素数据就可能不一致了。<br>所以，浏览器必须设置GUI渲染线程与JS引擎为互斥的关系，当JS引擎执行时GUI线程会被挂起，GUI更新则会被保存在一个队列中等到JS引擎线程空闲时立即被执行。</p>
+<p>2.JS阻塞页面加载？<br>因为在互斥的前提下，如果js执行时间过长,GUI就会一直等待。(网页卡的一个重要原因！)</p>
+<p>3.如何解决JS耗时操作的问题？<br>在HTML5中支持了Web Worker！！！<br>简单点说就是 通过创建Worker(子线程),浏览器给JS开了一条vip通道，完全受JS主线程控制，但是不能操作DOM！！工作完再把数据回传给JS。<br>渲染的同时又可以进行大计算量的工作的作用，即这是一个可以专门用来解决那些大量计算问题线程。<br>值得一提的是：JS引擎仍然是单线程的！Worker诞生于浏览器但是隶属于JS罢了。<br>JS引擎线程与worker线程间通过特定的方式通信（postMessage API，需要通过序列化对象来与线程交互特定的数据）</p>
+<p>4.SharedWorker？<br>如果同时加载多个标签页，那么如果使用普通的worker我们可能会重复创造多个线程 这必然会占用系统资源。为了解决这个问题诞生了这个共享线程SharedWorker。<br>浏览器为SharedWorker单独创建一个进程来运行程序，在浏览器中每个相同的JavaScript只存在一个SharedWorker进程，不管它被创建多少次。<br>即本质上SharedWorker是由独立的进程管理，而WebWorker只是属于render进程下的一个线程。</p>
+<hr>
+<p>浏览器器内核拿到内容后，渲染，接着是load事件了(先DOMContentLoaded ，后load)，之后就是自己的JS逻辑处理了。</p>
+<hr>
+<p>JS的运行机制：</p>
+<p>有必要说一下JS里的同步和异步：<br>首先，javascript语言是一门“单线程”的语言！！！<br>通俗的说，食堂打饭的时候必须排队，前面一个人打完饭菜才轮到下一个人。但是如果遇到前面的人在付钱的时候找饭卡或者发现饭卡没钱得充钱再付款类似这样的浪费时间的行为，肯定不可能所有人等他。<br>所以对于类似这种浪费时间的行为。可以开辟另一个通道，先让这些饭卡准备好的不浪费时间的同学先打饭，之后再让“特殊通道”的同学打饭。<br>对应的，(在执行栈中)正常排队打饭的同学即主线程的同步任务(不耗时)。特殊通道(任务队列)排队等待打饭的同学就是异步任务(耗时)。</p>
+<p>附上一段js代码。<br>        console.log( “1” );<br>        setTimeout(function() {<br>            console.log( “2” )<br>        }, 0 );<br>        setTimeout(function() {<br>            console.log( “3” )<br>        }, 0 );<br>        setTimeout(function() {<br>            console.log( “4” )<br>        }, 0 );<br>        setTimeout(function() {<br>            console.log( “5” )<br>        }, 0 );<br>        console.log( “6” );</p>
+<p>程序的输出顺序是 1 6 2 3 4 5</p>
+<p>显而易见的是，虽然设置了setTimeout（function，time）中的等待时间为0，结果其中的function还是后执行。<br>这是因为浏览器会默认setTimeout以及ajax请求这一类的方法都是耗时程序（尽管可能不耗时），将其加入一个队列中，该队列是一个存储耗时程序的队列，在所有不耗时程序执行过后，再来依次执行该队列中的程序。<br>PS:W3C在HTML标准中规定，规定要求setTimeout中低于4ms的时间间隔算为4ms。</p>
+<p>另外。setTimeout后，是如何等待特定时间后才添加到事件队列中的？<br>它是由定时器线程控制(JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确)。当使用setTimeout或setInterval时，它需要定时器线程计时，计时完成后就会将特定的事件推入事件队列中。</p>
+<hr>
+<p>(setTimeout和setInterval仍需学习总结)</p>
+<hr>
+<p>(macrotask与microtask仍需学习总结)</p>
+
+      
+    </div>
+    
+    
+    
+    
+    
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod">版权声明</span>
+<img src="" >
+<br/>
+<p style="font-size: 10px;line-height: 30px"><a href="http://niawenge.github.io" style="color:#258FC6">niawenge.github.io</a> by <a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a>创作并维护的<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a> 博客（ <a href="http://niawenge.github.io" style="color:#258FC6">http://niawenge.github.io</a> ），版权所有，侵权必究。</p>
+</div>
+</div>
+
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/money.png" alt="niawenge 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/知识梳理/" rel="tag"><i class="fa fa-tag"></i> 知识梳理</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/05/学习篇-CSS基础回顾1/" rel="next" title="[更新中]--CSS基础回顾1">
+                <i class="fa fa-chevron-left"></i> [更新中]--CSS基础回顾1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/06/跨域问题/" rel="prev" title="跨域问题">
+                跨域问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTQ3Ni8xMjAxMg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang1.jpg"
+                alt="niawenge" />
+            
+              <p class="site-author-name" itemprop="name">niawenge</p>
+              <p class="site-description motion-element" itemprop="description">每天都在充电！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:niawenge@163.com" target="_blank" title="网易邮箱">
+                      网易邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/SevsnChen" target="_blank" title="微博">
+                      微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+    </div>
+
+
+        
+      </div>
+
+    </main>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">niawenge</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+  欢迎交流讨论
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info"> 
+  邮箱:niawenge@163.com<span class="post-meta-divider">|</span>QQ:764852029 
+  </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=true&web_id=true" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

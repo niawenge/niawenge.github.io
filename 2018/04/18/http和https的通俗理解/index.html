@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "1e6b9efd"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,计算机网络,信息安全技术," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="新闻前几天的一则新闻，内容大概是：谷歌宣布在2018年七月起，Chrome浏览器的地址栏将把所有http标识为不安全的网站。 其实过去几年里，谷歌一直在大力倡导网站采用https加密，让互联网变得更“安全”些。  经过了解，明白了其中的原因，当然也应该以通俗易懂的方式告诉没学过计算机的人。  首先，这个http并非没有加密，而是加密方式不安全假设A要给B发一个消息。A自己设置了一种方式，用盒子将消">
+<meta name="keywords" content="前端,计算机网络,信息安全技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http和https的通俗理解">
+<meta property="og:url" content="http://yoursite.com/2018/04/18/http和https的通俗理解/index.html">
+<meta property="og:site_name" content="niawenge">
+<meta property="og:description" content="新闻前几天的一则新闻，内容大概是：谷歌宣布在2018年七月起，Chrome浏览器的地址栏将把所有http标识为不安全的网站。 其实过去几年里，谷歌一直在大力倡导网站采用https加密，让互联网变得更“安全”些。  经过了解，明白了其中的原因，当然也应该以通俗易懂的方式告诉没学过计算机的人。  首先，这个http并非没有加密，而是加密方式不安全假设A要给B发一个消息。A自己设置了一种方式，用盒子将消">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-25T14:34:06.557Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http和https的通俗理解">
+<meta name="twitter:description" content="新闻前几天的一则新闻，内容大概是：谷歌宣布在2018年七月起，Chrome浏览器的地址栏将把所有http标识为不安全的网站。 其实过去几年里，谷歌一直在大力倡导网站采用https加密，让互联网变得更“安全”些。  经过了解，明白了其中的原因，当然也应该以通俗易懂的方式告诉没学过计算机的人。  首先，这个http并非没有加密，而是加密方式不安全假设A要给B发一个消息。A自己设置了一种方式，用盒子将消">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/18/http和https的通俗理解/"/>
+
+
+
+
+
+  <title>http和https的通俗理解 | niawenge</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">niawenge</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">niawenge</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/http和https的通俗理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="niawenge">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="niawenge">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">http和https的通俗理解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T08:39:11+08:00">
+                2018-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+        
+
+        
+  <span class="post-updated">
+    &nbsp; | &nbsp; 更新于
+    <time itemprop="dateUpdated" datetime="2018-04-25T22:34:06+08:00" content="2018-04-25">
+      2018-04-25
+    </time>
+  </span>
+
+        
+
+
+
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>前几天的一则新闻，内容大概是：谷歌宣布在2018年七月起，Chrome浏览器的地址栏将把所有http标识为不安全的网站。</p>
+<p>其实过去几年里，谷歌一直在大力倡导网站采用https加密，让互联网变得更“安全”些。</p>
+<hr>
+<p>经过了解，明白了其中的原因，当然也应该以通俗易懂的方式告诉没学过计算机的人。</p>
+<hr>
+<h2 id="首先，这个http并非没有加密，而是加密方式不安全"><a href="#首先，这个http并非没有加密，而是加密方式不安全" class="headerlink" title="首先，这个http并非没有加密，而是加密方式不安全"></a>首先，这个http并非没有加密，而是加密方式不安全</h2><p>假设A要给B发一个消息。<br>A自己设置了一种方式，用盒子将消息装起来(加密处理)，且这个盒子需要特定的钥匙(密匙)才能打开。<br>A给B发消息的话，想要安全发送必须用盒子包裹消息一起发送给B，<br>但是考虑到B获取到盒子必须得打开才能读取到消息，<br>那么A会把钥匙一起发送给B。<br>每两人之间的通信都是不同的，用的不同的密匙，也就是说，如果有100个人，一个人至少要准备99把密匙。</p>
+<p>这里还有一个安全问题，如果第三方C截取到钥匙，那这个加密处理就形同虚设了。</p>
+<hr>
+<h2 id="https相对安全的加密手段"><a href="#https相对安全的加密手段" class="headerlink" title="https相对安全的加密手段"></a>https相对安全的加密手段</h2><p>同样如果A要给B发一个消息<br>A要传递的消息用盒子装起来，但是这次利用B准备的“盒子”和“钥匙”。<br>这里说的“钥匙”即密匙，是专门放置在B这里用来做解密处理的，是保密的，只有B拥有。<br>而这里说的“盒子”，即是A从B那里拿过来的公匙用来做加密处理的，是公开的。<br>这样，A只要把用B的公匙进行加密处理，等价于收到B的空盒子并且把消息装进这个专属的盒子里，一起发送给B就可以了,这样也只有B才能解密。<br>而对于第三方C，哪怕截取到盒子也无法打开获取里面的消息内容。<br>所有人人手只要准备两把钥匙。</p>
+<hr>
+<h2 id="追根溯源"><a href="#追根溯源" class="headerlink" title="追根溯源"></a>追根溯源</h2><p>其实https只是在http的基础上进行添加更改罢了。<br>传输层增加了TLS协议。即是一种单向加密的方式（非对称加密）。</p>
+<hr>
+<h2 id="没有绝对安全，只有相对安全"><a href="#没有绝对安全，只有相对安全" class="headerlink" title="没有绝对安全，只有相对安全"></a>没有绝对安全，只有相对安全</h2><p>不能说用了https就是绝对安全的了。<br>例如DH算法中也存在的安全隐患：（以下内容复制于百度百科）</p>
+<p>没有提供双方身份的任何信息. 它是计算密集性的，因此容易遭受阻塞性攻击，即对手请求大量的密钥.受攻击者花费了相对多的计算资源来求解无用的幂系数而不是在做真正的工作. 没办法防止重演攻击. 容易遭受中间人的攻击.第三方C在和A通信时扮演B；和B通信时扮演A.A和B都与C协商了一个密钥，然后C就可以监听和传递通信量.中间人的攻击按如下进行： B在给A的报文中发送他的公开密钥. C截获并解析该报文.C将B的公开密钥保存下来并给A发送报文，该报文具有B的用户ID但使用C的公开密钥YC，仍按照好像是来自B的样子被发送出去.A收到C的报文后，将YC和B的用户ID存储在一块.类似地，C使用YC向B发送好像来自A的报文. B基于私有密钥XB和YC计算秘密密钥K1.A基于私有密钥XA和YC计算秘密密钥K2.C使用私有密钥XC和YB计算K1，并使用XC和YA计算K2. 从现在开始，C就可以转发A发给B的报文或转发B发给A的报文，在途中根据需要修改它们的密文.使得A和B都不知道他们在和C共享通信.</p>
+
+      
+    </div>
+    
+    
+    
+    
+    
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod">版权声明</span>
+<img src="" >
+<br/>
+<p style="font-size: 10px;line-height: 30px"><a href="http://niawenge.github.io" style="color:#258FC6">niawenge.github.io</a> by <a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a>创作并维护的<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a> 博客（ <a href="http://niawenge.github.io" style="color:#258FC6">http://niawenge.github.io</a> ），版权所有，侵权必究。</p>
+</div>
+</div>
+
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/money.png" alt="niawenge 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+          
+            <a href="/tags/信息安全技术/" rel="tag"><i class="fa fa-tag"></i> 信息安全技术</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/11/JavaScript的提升机制/" rel="next" title="JavaScript的提升机制">
+                <i class="fa fa-chevron-left"></i> JavaScript的提升机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/21/js的this指向问题/" rel="prev" title="js的this指向问题">
+                js的this指向问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTQ3Ni8xMjAxMg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang1.jpg"
+                alt="niawenge" />
+            
+              <p class="site-author-name" itemprop="name">niawenge</p>
+              <p class="site-description motion-element" itemprop="description">每天都在充电！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:niawenge@163.com" target="_blank" title="网易邮箱">
+                      网易邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/SevsnChen" target="_blank" title="微博">
+                      微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#新闻"><span class="nav-number">1.</span> <span class="nav-text">新闻</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先，这个http并非没有加密，而是加密方式不安全"><span class="nav-number">1.1.</span> <span class="nav-text">首先，这个http并非没有加密，而是加密方式不安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#https相对安全的加密手段"><span class="nav-number">1.2.</span> <span class="nav-text">https相对安全的加密手段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#追根溯源"><span class="nav-number">1.3.</span> <span class="nav-text">追根溯源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#没有绝对安全，只有相对安全"><span class="nav-number">1.4.</span> <span class="nav-text">没有绝对安全，只有相对安全</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+
+
+        
+      </div>
+
+    </main>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">niawenge</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+  欢迎交流讨论
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info"> 
+  邮箱:niawenge@163.com<span class="post-meta-divider">|</span>QQ:764852029 
+  </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=true&web_id=true" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

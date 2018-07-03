@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "1e6b9efd"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="读书笔记,前端,性能优化," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="近期在阅读李银城老师的新书《高效前端 web高效编程与优化实践》  导航高亮直接上代码 以下是html 123456789101112&amp;lt;body class=&quot;home&quot;&amp;gt;    &amp;lt;nav&amp;gt;        &amp;lt;li class=&quot;home&quot;&amp;gt;home&amp;lt;/li&amp;gt;        &amp;lt;li class=&quot;buy&quot;&amp;gt;buy&amp;lt;/li&amp;gt;">
+<meta name="keywords" content="读书笔记,前端,性能优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读书笔记一">
+<meta property="og:url" content="http://yoursite.com/2018/04/07/读书笔记一/index.html">
+<meta property="og:site_name" content="niawenge">
+<meta property="og:description" content="近期在阅读李银城老师的新书《高效前端 web高效编程与优化实践》  导航高亮直接上代码 以下是html 123456789101112&amp;lt;body class=&quot;home&quot;&amp;gt;    &amp;lt;nav&amp;gt;        &amp;lt;li class=&quot;home&quot;&amp;gt;home&amp;lt;/li&amp;gt;        &amp;lt;li class=&quot;buy&quot;&amp;gt;buy&amp;lt;/li&amp;gt;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-24T13:56:58.884Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="读书笔记一">
+<meta name="twitter:description" content="近期在阅读李银城老师的新书《高效前端 web高效编程与优化实践》  导航高亮直接上代码 以下是html 123456789101112&amp;lt;body class=&quot;home&quot;&amp;gt;    &amp;lt;nav&amp;gt;        &amp;lt;li class=&quot;home&quot;&amp;gt;home&amp;lt;/li&amp;gt;        &amp;lt;li class=&quot;buy&quot;&amp;gt;buy&amp;lt;/li&amp;gt;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/07/读书笔记一/"/>
+
+
+
+
+
+  <title>读书笔记一 | niawenge</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">niawenge</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">niawenge</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/07/读书笔记一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="niawenge">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="niawenge">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">读书笔记一</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-07T12:40:44+08:00">
+                2018-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+        
+
+        
+  <span class="post-updated">
+    &nbsp; | &nbsp; 更新于
+    <time itemprop="dateUpdated" datetime="2018-04-24T21:56:58+08:00" content="2018-04-24">
+      2018-04-24
+    </time>
+  </span>
+
+        
+
+
+
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML-CSS优化/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML/CSS优化</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML-CSS优化/能用HTML-CSS解决的问题就不要用JS/" itemprop="url" rel="index">
+                    <span itemprop="name">能用HTML/CSS解决的问题就不要用JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>   近期在阅读李银城老师的新书《高效前端 web高效编程与优化实践》</p>
+<hr>
+<h1 id="导航高亮"><a href="#导航高亮" class="headerlink" title="导航高亮"></a>导航高亮</h1><p>直接上代码</p>
+<p>以下是html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"home"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"home"</span>&gt;</span>home<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"buy"</span>&gt;</span>buy<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"buy"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"home"</span>&gt;</span>home1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"buy"</span>&gt;</span>buy1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>以下是css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">        <span class="attribute">opacity</span>: <span class="number">0.5</span>;&#125;</span><br><span class="line"><span class="selector-tag">nav</span> <span class="selector-tag">li</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">        <span class="attribute">opacity</span>: <span class="number">1</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.home</span> <span class="selector-tag">nav</span> <span class="selector-tag">li</span><span class="selector-class">.home</span>,</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.buy</span> <span class="selector-tag">nav</span> <span class="selector-tag">li</span><span class="selector-class">.buy</span>&#123;</span><br><span class="line">        <span class="attribute">opacity</span>: <span class="number">1</span>;&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>如果当前页面是home，则home高亮。</p>
+<p>如果用js控制。那么在脚本加载好之前不会高亮，脚本加载好之后会突然高亮。</p>
+<p>对于hover，如果用js的mousse事件实现功能，会在mouseover和mouseleave的时候添加和删除一个类，即复杂了。</p>
+<hr>
+<h1 id="鼠标悬浮显示"><a href="#鼠标悬浮显示" class="headerlink" title="鼠标悬浮显示"></a>鼠标悬浮显示</h1><p>书上的做法都尝试过后，还是下面这种方法最简单高效。<br>同样直接上代码</p>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"father"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"user"</span>&gt;</span>用户<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"menu"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span>账户设置<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span>登出<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.father</span> <span class="selector-class">.menu</span>&#123;</span><br><span class="line">        <span class="attribute">display</span>:none;&#125;</span><br><span class="line"><span class="selector-class">.father</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.menu</span>&#123;</span><br><span class="line">        <span class="attribute">display</span>:list-item;&#125;</span><br></pre></td></tr></table></figure>
+<p>使用子元素，这个更简单。把hover的目标和隐藏的对象当作同一个父容器的子元素(我这边是用DIV把.user和.menu包裹起来)，然后hover写在这个父容器上面就可以了，不用像其他方法，隐藏元素也要写个hover：</p>
+<p>ps:相邻选择器和伪类选择器的用法还需要回顾一下。</p>
+<hr>
+<h1 id="自定义radio-checkbox的样式"><a href="#自定义radio-checkbox的样式" class="headerlink" title="自定义radio/checkbox的样式"></a>自定义radio/checkbox的样式</h1><p>二话不说直接上代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">            <span class="selector-tag">input</span><span class="selector-attr">[type=checkbox]</span>&#123;</span><br><span class="line">                <span class="attribute">display</span>:none;</span><br><span class="line">            &#125;<span class="comment">/*未选中的checkbox的样式*/</span></span><br><span class="line">            <span class="selector-class">.checkbox</span>&#123;</span><br><span class="line">                <span class="attribute">font-size</span>: <span class="number">50px</span>；</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="selector-tag">input</span><span class="selector-attr">[type=checkbox]</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox</span>&#123;</span><br><span class="line">                <span class="attribute">font-size</span>: <span class="number">100px</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="selector-tag">label</span>&#123;</span><br><span class="line">                <span class="attribute">display</span>: inline-block;</span><br><span class="line">                <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">                <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">                <span class="attribute">background</span>: gray;</span><br><span class="line">            &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">     &lt;<span class="selector-tag">label</span>&gt;</span><br><span class="line">            &lt;input type="checkbox"&gt;</span><br><span class="line">            &lt;span class="checkbox"&gt;你好&lt;/span&gt;</span><br><span class="line">    &lt;/label&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>以上代码的功能：<br>一个灰色的矩形框里面有100px大小的“你好”。点击灰色矩形框任何区域，能够缩小“你好”的字体大小为50px。</p>
+<p>关键操作：</p>
+<ol>
+<li>把一个checkbox和一个用来自定义样式的span写在一个label里面，checkbox始终隐藏。</li>
+<li>写在label里面是为了能够点击span的时候改变checkbox的状态，然后再改一下选中态的样式即可。</li>
+</ol>
+<p>核心想法：这主要借助了CSS3提供的一个伪类:checkd，只要radio/checkbox是选中状态，这个伪类就会生效，因此可以利用选中和非选中的这两种状态，去切换不同的样式。</p>
+<p>:checked兼容性很不错。收纳！</p>
+<hr>
+<h1 id="多列等高"><a href="#多列等高" class="headerlink" title="多列等高"></a>多列等高</h1><p>多列等高问题：排成一行的几列由于内容长短不一致，导致容器的高度不一致。</p>
+<p>解决方式：</p>
+<ol>
+<li><p>用js算一下，以最高的一列的高度去设置所有列的高度.<br>结果：会造成页面闪动，即刚开始打开页面的时候高度不一致，然后发现突然又对齐了。（方法不行）</p>
+</li>
+<li><p>每列来一个很大的padding，再来一个很大的负的margin值矫正回去。<br>结果：虽然对齐是对齐了，但是底部的border没有了，设置的圆角也不起作用了，究其原因，是因为设置了一个很大的padding值，导致它的高度变得很大，而且如果你想在底部absolute定位放一个链接”更多&gt;&gt;”也是实现不了了。（方法不行）</p>
+</li>
+<li><p>借助table的自适应特性 ，每个div都是一个td，td肯定是等高的。（优秀）</p>
+</li>
+</ol>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"n"</span>&gt;</span>column 11111111111111111 11111111111111 111111111111111111 11111111111111111 11111111111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"n"</span>&gt;</span>column 11111111111111111 11111111111111 111111111111111111 11111111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"n"</span>&gt;</span>column 11111111111111111 11111111111111 111111111111111111 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"n"</span>&gt;</span>column 11111111111111111 11111111111111 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">                <span class="attribute">display</span>:table;</span><br><span class="line">                <span class="attribute">border-spacing</span>:<span class="number">20px</span>;  <span class="comment">/* td间的间距*/</span></span><br><span class="line">            &#125;</span><br><span class="line"><span class="selector-class">.wrapper</span> &gt; <span class="selector-tag">div</span> &#123;</span><br><span class="line">                <span class="attribute">display</span>:table-cell;</span><br><span class="line">                <span class="attribute">width</span>:<span class="number">100px</span>;         <span class="comment">/*设置大一点的宽度，table自动平分宽度 */</span></span><br><span class="line">                <span class="attribute">border-radius</span>:<span class="number">5px</span>;    <span class="comment">/*这里设置圆角就正常了*/</span></span><br><span class="line">                <span class="attribute">background</span>: pink;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<p>不仅能实现等高等宽，<br>而且响应式开发的时候，可以借助媒体查询动态地改变display的属性，从而改它排列的方式。（优秀）</p>
+<p>修改CSS</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">                <span class="attribute">display</span>:table;</span><br><span class="line">                <span class="attribute">border-spacing</span>:<span class="number">20px</span>;  <span class="comment">/* td间的间距*/</span></span><br><span class="line">            &#125;</span><br><span class="line"><span class="selector-class">.wrapper</span> &gt; <span class="selector-tag">div</span> &#123;</span><br><span class="line">                <span class="attribute">display</span>:table-cell;</span><br><span class="line">                <span class="attribute">width</span>:<span class="number">200px</span>;         <span class="comment">/*设置大一点的宽度，table自动平分宽度 */</span></span><br><span class="line">                <span class="attribute">border-radius</span>:<span class="number">5px</span>;    <span class="comment">/*这里设置圆角就正常了*/</span></span><br><span class="line">                <span class="attribute">background</span>: pink;</span><br><span class="line">            &#125;</span><br><span class="line">     @<span class="keyword">media</span> (max-width: <span class="number">1000px</span>)&#123;</span><br><span class="line">            <span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">                <span class="attribute">display</span>:block;</span><br><span class="line">                <span class="attribute">border-spacing</span>:<span class="number">20px</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="selector-class">.wrapper</span> &gt; <span class="selector-tag">div</span> &#123;</span><br><span class="line">                <span class="attribute">display</span>:block;</span><br><span class="line">                <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">                <span class="attribute">border-radius</span>:<span class="number">5px</span>;</span><br><span class="line">                <span class="attribute">background</span>: pink;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>补充：如果在pad 1024px的设备上，希望一行显示2个，那应该怎么办呢？由于上面用的td，必定会排在同一行。其实可以在第二个和第三个中间加一个tr，让它换行：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"tr"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>column 4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在大屏和小屏时，tr是不显示的，而在中屏时，tr显示：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.tr</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (max-width: <span class="number">1024px</span>) and (min-width: <span class="number">501px</span>)&#123;</span><br><span class="line">    <span class="selector-class">.tr</span>&#123;</span><br><span class="line">        <span class="attribute">display</span>:table-row;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就能够实现在小屏时一行排两列了，只是这个有个小问题，就是在中屏拉到大屏的时候tr的dipslay: none已经没有什么作用，因为table的布局已经计算好。但是一般应该不用考虑这种拉伸范围很大的情况，正常刷新页面是可以的，如果真要解决那得借助下js。</p>
+
+      
+    </div>
+    
+    
+    
+    
+    
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod">版权声明</span>
+<img src="" >
+<br/>
+<p style="font-size: 10px;line-height: 30px"><a href="http://niawenge.github.io" style="color:#258FC6">niawenge.github.io</a> by <a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a>创作并维护的<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://niawenge.github.io" style="color:#258FC6">niawenge</a> 博客（ <a href="http://niawenge.github.io" style="color:#258FC6">http://niawenge.github.io</a> ），版权所有，侵权必究。</p>
+</div>
+</div>
+
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/money.png" alt="niawenge 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/读书笔记/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+            <a href="/tags/性能优化/" rel="tag"><i class="fa fa-tag"></i> 性能优化</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/06/跨域问题/" rel="next" title="跨域问题">
+                <i class="fa fa-chevron-left"></i> 跨域问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/09/JavaScript-之-with/" rel="prev" title="JavaScript 之 with">
+                JavaScript 之 with <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTQ3Ni8xMjAxMg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang1.jpg"
+                alt="niawenge" />
+            
+              <p class="site-author-name" itemprop="name">niawenge</p>
+              <p class="site-description motion-element" itemprop="description">每天都在充电！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:niawenge@163.com" target="_blank" title="网易邮箱">
+                      网易邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/SevsnChen" target="_blank" title="微博">
+                      微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导航高亮"><span class="nav-number">1.</span> <span class="nav-text">导航高亮</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#鼠标悬浮显示"><span class="nav-number">2.</span> <span class="nav-text">鼠标悬浮显示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义radio-checkbox的样式"><span class="nav-number">3.</span> <span class="nav-text">自定义radio/checkbox的样式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多列等高"><span class="nav-number">4.</span> <span class="nav-text">多列等高</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+
+
+        
+      </div>
+
+    </main>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">niawenge</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+  欢迎交流讨论
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info"> 
+  邮箱:niawenge@163.com<span class="post-meta-divider">|</span>QQ:764852029 
+  </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=true&web_id=true" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
