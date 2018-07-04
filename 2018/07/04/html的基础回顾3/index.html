@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="niawenge">
 <meta property="og:description" content="表单from标签即表单标签。又包含了 input标签，select标签，option标签，textarea标签。 input标签表单输入标签。单标签。 input标签的type属性 text 单行文本域  name 文本域名称。 maxlength 指用户输入的最大字符长度。 size 指定文本框的宽度，以字符个数为单位。且文本框的缺省宽度是20个字符。 value 指定文本框的默认值。 plac">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-04T11:58:19.536Z">
+<meta property="og:updated_time" content="2018-07-04T12:31:41.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html的基础回顾3">
 <meta name="twitter:description" content="表单from标签即表单标签。又包含了 input标签，select标签，option标签，textarea标签。 input标签表单输入标签。单标签。 input标签的type属性 text 单行文本域  name 文本域名称。 maxlength 指用户输入的最大字符长度。 size 指定文本框的宽度，以字符个数为单位。且文本框的缺省宽度是20个字符。 value 指定文本框的默认值。 plac">
@@ -306,7 +306,7 @@
         
   <span class="post-updated">
     &nbsp; | &nbsp; 更新于
-    <time itemprop="dateUpdated" datetime="2018-07-04T19:58:19+08:00" content="2018-07-04">
+    <time itemprop="dateUpdated" datetime="2018-07-04T20:31:41+08:00" content="2018-07-04">
       2018-07-04
     </time>
   </span>
@@ -429,7 +429,32 @@ multiple即设置为 可多选。
 <li><p>cols 设置文本区内的可见宽度。</p>
 </li>
 </ol>
-
+<hr>
+<h2 id="form标签的其他属性"><a href="#form标签的其他属性" class="headerlink" title="form标签的其他属性"></a>form标签的其他属性</h2><h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><pre><code>提交表单时向何处发送表单数据。
+属性值为 URL.或者可以说是提交表单后处理数据的文件。
+</code></pre><h3 id="method"><a href="#method" class="headerlink" title="method"></a>method</h3><pre><code>设置表单以何种方式发送到指定页面。
+属性值有：
+    get：通常是用来查询一些数据的情况下使用。因为get是使用url传递参数，会把数据暴露出来。同时get对所发送的信息的数量也有限制。
+    post：通常用来修改服务器上的数据。使用post时，表单数据会作为http请求体的一部分，具有一定的保密性，且对所发送信息的数量无限制。
+</code></pre><h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><pre><code>表单的名称。
+</code></pre><h3 id="target"><a href="#target" class="headerlink" title="target"></a>target</h3><pre><code>在何处打开action的URL。
+属性值有：
+    _blank 在空页面打开。
+    _self 在当前页面打开。默认值。
+    _parent
+    _top
+</code></pre><h3 id="enctype"><a href="#enctype" class="headerlink" title="enctype"></a>enctype</h3><pre><code>在发送表单数据之前如何对其进行编码。
+属性值为：
+    application/x-www-form-urlencoded
+        在发送前编码所有字符，在发送到服务器之前，所有字符都会进行编码（空格转换为 &quot;+&quot; 加号，特殊符号转换为 ASCII HEX 值）。默认方式。
+        只能上传文本格式的文件。
+    multipart/form-data
+        不对字符编码。
+        是将文件以二进制的形式上传，这样可以实现多种类型的文件上传。包含上传控件的时候使用。
+    text/plain
+        空格转换为 &quot;+&quot; 加号，但不对特殊字符编码。
+        是将文件设置为纯文本的形式，浏览器在获取到这种文件时并不会对其进行处理。
+</code></pre>
       
     </div>
     
@@ -679,7 +704,7 @@ multiple即设置为 可多选。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#表单"><span class="nav-number">1.</span> <span class="nav-text">表单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#from标签"><span class="nav-number">1.1.</span> <span class="nav-text">from标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input标签"><span class="nav-number">1.2.</span> <span class="nav-text">input标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input标签的type属性"><span class="nav-number">1.2.1.</span> <span class="nav-text">input标签的type属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select标签"><span class="nav-number">1.3.</span> <span class="nav-text">select标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#option标签"><span class="nav-number">1.4.</span> <span class="nav-text">option标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#optgroup标签"><span class="nav-number">1.5.</span> <span class="nav-text">optgroup标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#textarea标签"><span class="nav-number">1.6.</span> <span class="nav-text">textarea标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多行文本域的属性"><span class="nav-number">1.6.1.</span> <span class="nav-text">多行文本域的属性</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#表单"><span class="nav-number">1.</span> <span class="nav-text">表单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#from标签"><span class="nav-number">1.1.</span> <span class="nav-text">from标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input标签"><span class="nav-number">1.2.</span> <span class="nav-text">input标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input标签的type属性"><span class="nav-number">1.2.1.</span> <span class="nav-text">input标签的type属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select标签"><span class="nav-number">1.3.</span> <span class="nav-text">select标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#option标签"><span class="nav-number">1.4.</span> <span class="nav-text">option标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#optgroup标签"><span class="nav-number">1.5.</span> <span class="nav-text">optgroup标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#textarea标签"><span class="nav-number">1.6.</span> <span class="nav-text">textarea标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多行文本域的属性"><span class="nav-number">1.6.1.</span> <span class="nav-text">多行文本域的属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#form标签的其他属性"><span class="nav-number">1.7.</span> <span class="nav-text">form标签的其他属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#action"><span class="nav-number">1.7.1.</span> <span class="nav-text">action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#method"><span class="nav-number">1.7.2.</span> <span class="nav-text">method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#name"><span class="nav-number">1.7.3.</span> <span class="nav-text">name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#target"><span class="nav-number">1.7.4.</span> <span class="nav-text">target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#enctype"><span class="nav-number">1.7.5.</span> <span class="nav-text">enctype</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
