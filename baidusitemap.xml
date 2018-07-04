@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/04/26/html%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/</loc>
-    <lastmod>2018-07-03T07:43:01.340Z</lastmod>
+    <loc>http://yoursite.com/2018/07/03/html%E7%9A%84%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE2/</loc>
+    <lastmod>2018-07-04T02:38:08.399Z</lastmod>
     <data>
         <display>
-        <title>html的基础回顾</title>
-        <pubTime>2018-04-26T14:35:05.000Z</pubTime>
+        <title>html的基础回顾2</title>
+        <pubTime>2018-07-03T05:50:53.000Z</pubTime>
         
         <tag>温故知新</tag>
          
@@ -24,15 +24,20 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/07/03/html%E7%9A%84%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE2/</loc>
-    <lastmod>2018-07-03T05:50:54.001Z</lastmod>
+    <loc>http://yoursite.com/2018/04/26/html%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE/</loc>
+    <lastmod>2018-07-03T07:43:01.340Z</lastmod>
     <data>
         <display>
-        <title>html的基础回顾2</title>
-        <pubTime>2018-07-03T05:50:53.000Z</pubTime>
+        <title>html的基础回顾</title>
+        <pubTime>2018-04-26T14:35:05.000Z</pubTime>
         
+        <tag>温故知新</tag>
+         
          
            
+             
+              <breadCrumb title="HTML/CSS" url="http://yoursite.com/categories/HTML-CSS/"/>
+          
         </display>
     </data>
     </url>
