@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/07/04/css%E7%9A%84%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE2/</loc>
+    <lastmod>2018-07-04T14:10:00.918Z</lastmod>
+    <data>
+        <display>
+        <title>css的基础回顾2</title>
+        <pubTime>2018-07-04T13:07:56.000Z</pubTime>
+        
+        <tag>温故知新</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://yoursite.com/categories/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/04/05/%E5%AD%A6%E4%B9%A0%E7%AF%87-CSS%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE1/</loc>
     <lastmod>2018-07-04T14:02:52.649Z</lastmod>
     <data>
@@ -17,26 +37,6 @@
            
              
               <breadCrumb title="CSS" url="http://yoursite.com/categories/CSS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/07/04/css%E7%9A%84%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE2/</loc>
-    <lastmod>2018-07-04T13:23:39.178Z</lastmod>
-    <data>
-        <display>
-        <title>css的基础回顾2</title>
-        <pubTime>2018-07-04T13:07:56.000Z</pubTime>
-        
-        <tag>温故知新</tag>
-         
-         
-           
-             
-              <breadCrumb title="css" url="http://yoursite.com/categories/css/"/>
           
         </display>
     </data>
