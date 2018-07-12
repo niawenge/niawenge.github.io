@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="文字样式文字样式属性 字体：font-family 例如宋体，微软雅黑，黑体等等。  文字大小：font-size  文字颜色：font-color  文字粗细：font-weight  文字样式：font-style">
+<meta name="description" content="文字样式文字样式属性 字体：font-family 例如宋体，微软雅黑，黑体等等。  文字大小：font-size in 英寸，1英寸=2.54厘米 cm 厘米，1厘米=0.394英寸 mm 毫米，1毫米=0.1厘米 pt 磅,72磅=1英寸 pc Pica,1pc=12pt  绝对单位的属性值： xx-small    9px x-small     11px small       13px">
 <meta name="keywords" content="温故知新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css的基础回顾3">
 <meta property="og:url" content="http://yoursite.com/2018/07/04/css的基础回顾3/index.html">
 <meta property="og:site_name" content="niawenge">
-<meta property="og:description" content="文字样式文字样式属性 字体：font-family 例如宋体，微软雅黑，黑体等等。  文字大小：font-size  文字颜色：font-color  文字粗细：font-weight  文字样式：font-style">
+<meta property="og:description" content="文字样式文字样式属性 字体：font-family 例如宋体，微软雅黑，黑体等等。  文字大小：font-size in 英寸，1英寸=2.54厘米 cm 厘米，1厘米=0.394英寸 mm 毫米，1毫米=0.1厘米 pt 磅,72磅=1英寸 pc Pica,1pc=12pt  绝对单位的属性值： xx-small    9px x-small     11px small       13px">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-04T15:02:08.192Z">
+<meta property="og:updated_time" content="2018-07-12T07:50:25.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css的基础回顾3">
-<meta name="twitter:description" content="文字样式文字样式属性 字体：font-family 例如宋体，微软雅黑，黑体等等。  文字大小：font-size  文字颜色：font-color  文字粗细：font-weight  文字样式：font-style">
+<meta name="twitter:description" content="文字样式文字样式属性 字体：font-family 例如宋体，微软雅黑，黑体等等。  文字大小：font-size in 英寸，1英寸=2.54厘米 cm 厘米，1厘米=0.394英寸 mm 毫米，1毫米=0.1厘米 pt 磅,72磅=1英寸 pc Pica,1pc=12pt  绝对单位的属性值： xx-small    9px x-small     11px small       13px">
 
 
 
@@ -306,8 +306,8 @@
         
   <span class="post-updated">
     &nbsp; | &nbsp; 更新于
-    <time itemprop="dateUpdated" datetime="2018-07-04T23:02:08+08:00" content="2018-07-04">
-      2018-07-04
+    <time itemprop="dateUpdated" datetime="2018-07-12T15:50:25+08:00" content="2018-07-12">
+      2018-07-12
     </time>
   </span>
 
@@ -371,15 +371,48 @@
 <li><p>字体：font-family 例如宋体，微软雅黑，黑体等等。</p>
 </li>
 <li><p>文字大小：font-size</p>
-</li>
+<pre><code>in 英寸，1英寸=2.54厘米
+cm 厘米，1厘米=0.394英寸
+mm 毫米，1毫米=0.1厘米
+pt 磅,72磅=1英寸
+pc Pica,1pc=12pt
+</code></pre><p> 绝对单位的属性值：</p>
+<pre><code>xx-small    9px
+x-small     11px
+small       13px
+medium      16px
+large       19px
+x-large     23px
+xx-large    28px
+</code></pre><p> 相对单位的属性值：</p>
+<pre><code>px 像素 受显示器分辨率的影响。
+em/%
+</code></pre></li>
 <li><p>文字颜色：font-color</p>
+<p> 主要有三种表现形式。<br> 第一种可以用 颜色的英文单词。<br> 第二种用 rgb(，，)，数值在0~255；百分比在0%~100%。<br> 第三种用#开头的6位的16进制表示的数.例如#117700.不区分大小写，且可简写为#170.</p>
 </li>
 <li><p>文字粗细：font-weight</p>
+<p> 用来设置文字的粗细。<br> 属性值有：normal/bold/bolder/lighter/100~900<br> 默认值为normal,即400.<br> bold即差不多等同于700。</p>
 </li>
 <li><p>文字样式：font-style</p>
+<p> 用来设置文字的倾斜状态。<br> 属性值有：normal/italic斜体/oblique倾斜</p>
+</li>
+<li><p>字体变形：font-variant</p>
+<p> 设置元素中，文本为小型大写字母。<br> 属性值有：normal/small-caps</p>
 </li>
 </ol>
-
+<h2 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h2><ol>
+<li><p>text-align(只对块级元素的设置有效，例如div)</p>
+<p> 设置元素内文本的水平对齐方式。<br> 属性值有：left/right/center/justify两端对齐</p>
+</li>
+<li><p>vertical-align(只对行内元素有效，例如span,img)</p>
+<p> 设置元素内容的垂直方式。<br> 属性值有：sub下标/super上标</p>
+<pre><code>top/text-top/middle/baseline(默认)/text-bottom/bottom
+长度/百分比 正值为基于基线上移，负值是基于基线下移。
+</code></pre></li>
+</ol>
+<h2 id="单行文字垂直居中"><a href="#单行文字垂直居中" class="headerlink" title="单行文字垂直居中"></a>单行文字垂直居中</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>:<span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多行文字垂直居中"><a href="#多行文字垂直居中" class="headerlink" title="多行文字垂直居中"></a>多行文字垂直居中</h2>
       
     </div>
     
@@ -550,7 +583,7 @@
                 alt="niawenge" />
             
               <p class="site-author-name" itemprop="name">niawenge</p>
-              <p class="site-description motion-element" itemprop="description">每天都在充电！</p>
+              <p class="site-description motion-element" itemprop="description">我意识到，如果现在我不做些什么的话，可能未来的生活就是一直做一条烂咸鱼了。然而这是我自找的没什么好发脾气。</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -629,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文字样式"><span class="nav-number">1.</span> <span class="nav-text">文字样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文字样式属性"><span class="nav-number">1.1.</span> <span class="nav-text">文字样式属性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文字样式"><span class="nav-number">1.</span> <span class="nav-text">文字样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文字样式属性"><span class="nav-number">1.1.</span> <span class="nav-text">文字样式属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本样式"><span class="nav-number">1.2.</span> <span class="nav-text">文本样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单行文字垂直居中"><span class="nav-number">1.3.</span> <span class="nav-text">单行文字垂直居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多行文字垂直居中"><span class="nav-number">1.4.</span> <span class="nav-text">多行文字垂直居中</span></a></li></ol></li></ol></div>
             
 
           </div>
