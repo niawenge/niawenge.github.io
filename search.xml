@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mongodb数据库连接的变化]]></title>
+    <url>%2F2018%2F10%2F06%2Fmongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%8F%98%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[今天遇到一个连接的参数错误的问题。网上没找到解决方案。自己去文档查询了一下。 文档useNewUrlParser - 底层的MongoDB驱动程序已弃用其当前的连接字符串解析器。因为这是一个重大更改，所以他们添加了useNewUrlParser标志，以允许用户在新解析器中发现错误时回退到旧解析器。useNewUrlParser: true除非阻止您连接，否则应设置。请注意，如果指定useNewUrlParser: true，则必须在连接字符串中指定端口，例如mongodb://localhost:27017/dbname。新的URL解析程序不支持没有端口，如连接字符串mongodb://localhost/dbname。 解决如下：1mongoose.connect('mongodb://localhost:27017/pets',&#123;useNewUrlParser: true&#125;);]]></content>
+      <categories>
+        <category>mongodb</category>
+      </categories>
+      <tags>
+        <tag>mongodb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[css的基础回顾4]]></title>
+    <url>%2F2018%2F07%2F26%2Fcss%E7%9A%84%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE4%2F</url>
+    <content type="text"><![CDATA[背景样式背景颜色background-color 背景颜色 其中transparent为透明色，效果和不设置类似。因为用户对浏览器颜色进行设置可能会影响设计。 值得注意的是背景区域内，内容，padding内边距，边框有效，但是margin外边距不包括。 背景图片background-image 背景图片 和背景颜色一样，背景区域内，内容，padding内边距，边框有效，但是margin外边距不包括。 如果同时设置了背景颜色和背景图片的话，那么背景图片会覆盖背景颜色。 列表列表项标记list-style-type 设置列表项的标记样式类型。无序列表none 无disc 实心的圆点circle 空心的圆点square 实心的方块 有序列表none 无decimal 从1开始的整数lower-roman 小写罗马数字upper-roman 大写罗马数字lower-alpha 小写英文字母upper-alpha 大写英文字母 list-style-image 使用图片设置列表项的标记]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>温故知新</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[win10系统开始菜单等左键没反应]]></title>
     <url>%2F2018%2F07%2F26%2Fwin10%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%A7%8B%E8%8F%9C%E5%8D%95%E7%AD%89%E5%B7%A6%E9%94%AE%E6%B2%A1%E5%8F%8D%E5%BA%94%2F</url>
     <content type="text"><![CDATA[遇到的问题今天偶然发现win10系统出问题了。 左键想点击任务栏的WIFI图标查看WIFI列表时，发现点击没有反应。声音图标也左键也无反应。甚至连开始菜单左键都没反应。 虽然左键无反应，但是右键有反应。 解决办法上网查询了许久，且试用了多种方法之后。最终得到一种有效的解决办法。 在键盘上按下win+R键，或在开始菜单图标上点击右键选择运行 输入powershell，按下“确定”运行 在窗口里输入或复制粘贴以下命令，注意只有一行： Get-AppxPackage | % { Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppxManifest.xml” -verbose } 点击enter键，等待修复命令运行完成，完成之后BUG就被修复了]]></content>
@@ -246,8 +268,8 @@
         <category>JS</category>
       </categories>
       <tags>
-        <tag>读书笔记</tag>
         <tag>with</tag>
+        <tag>读书笔记</tag>
       </tags>
   </entry>
   <entry>
