@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>https://niawenge.github.io/2018/12/16/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%E4%B9%8Brem%E5%B8%83%E5%B1%80/</loc>
+    <lastmod>2018-12-16T14:14:54.469Z</lastmod>
+    <data>
+        <display>
+        <title>移动端自适应之rem布局</title>
+        <pubTime>2018-12-16T13:48:06.000Z</pubTime>
+        
+        <tag>移动前端开发</tag>
+         
+        <tag>自适应</tag>
+         
+        <tag>rem布局</tag>
+         
+        <tag>根font-size</tag>
+         
+        <tag>vw</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动前端开发之路" url="https://niawenge.github.io/categories/%E7%A7%BB%E5%8A%A8%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B9%8B%E8%B7%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://niawenge.github.io/2018/12/16/MUI%E7%9A%84UI%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2018-12-16T13:46:13.646Z</lastmod>
     <data>
@@ -465,9 +493,9 @@
         <title>从渲染机制理解并选择domReady</title>
         <pubTime>2018-04-24T13:46:17.000Z</pubTime>
         
-        <tag>前端</tag>
-         
         <tag>JS</tag>
+         
+        <tag>前端</tag>
          
         <tag>domReady</tag>
          
