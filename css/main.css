@@ -1978,7 +1978,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #113d46;
+  background: #812b58;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3084,9 +3084,25 @@ hr {
   }
 }
 body {
-  background-image: url("../../images/bg.png") !important;
+  background-image: url("../../images/bb.jpg") !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-size: contain;
+}
+.header {
+  background: #ffc0cb;
+  opacity: 0.5;
+}
+.menu {
+  background: #ffc0cb;
+}
+.menu-item a {
+  color: #000;
+  font-weight: bolder;
+}
+.post-title-link {
+  color: #fff !important;
+}
+.post-body {
+  color: #fff !important;
 }
