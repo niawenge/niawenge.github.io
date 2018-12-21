@@ -1978,7 +1978,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #09ffff;
+  background: #2982ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3091,7 +3091,7 @@ body {
 }
 .header {
   background: #ffc0cb;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 .menu {
   background: #ffc0cb;
@@ -3106,6 +3106,55 @@ body {
 .post-body {
   color: #fff !important;
 }
-.post-category span {
-  color: #ffc0cb !important;
+.post-meta {
+  color: #000;
+  background: #fff;
+  opacity: 0.8;
+  border-radius: 15px;
+}
+.posts-expand .post-title,
+.posts-expand .post-meta {
+  text-align: center;
+}
+.btn {
+  margin-right: 0 !important;
+}
+.footer {
+  background: #ffc0cb;
+  opacity: 0.8;
+}
+.post-title {
+  color: #fff;
+}
+.tag-cloud-tags {
+  background: rgba(102,102,51,0.2) 0;
+}
+.category-list-link {
+  color: #fff;
+}
+.category-list-link:hover {
+  color: #ffc0cb;
+}
+.post-meta {
+  left: 12px !important;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.archive-page-counter {
+  color: #fff;
+}
+.archive-year {
+  color: #fff;
+}
+table {
+  background: #000;
+}
+th {
+  background: #000;
+}
+td {
+  background: #000;
+}
+#needsharebutton-postbottom .btn {
+  background: #fff !important;
 }
