@@ -1978,7 +1978,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #812b58;
+  background: #09ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3105,4 +3105,7 @@ body {
 }
 .post-body {
   color: #fff !important;
+}
+.post-category span {
+  color: #ffc0cb !important;
 }
